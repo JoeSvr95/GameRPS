@@ -19,15 +19,19 @@ public class Game {
     public static final int MIN_WINS = 3;
     
     public static void main(String[] args) {
-        Player p1 = new Player();
-        Player p2 = new Player();
+        Player p1 = new Player("Miguel");
+        Player p2 = new Player("Joe");
         boolean gameWon = false;
         int draws = 0;
-        int roundsPlayed = 0;
+        int roundsPlayed = 1;
         
         do{
-            System.out.println("***** Round: " + (roundsPlayed + 1) + " *****\n");
+            System.out.println("***** Round: " + roundsPlayed + " *****\n");
             System.out.println("Number of Draws: " + draws + "\n");
+            
+            System.out.println("Jugador 1\n" + p1);
+            System.out.println("Jugador 2 \n" + p2);
+            
             int resultado = p1.getChoice().compareTo(p2.getChoice());
             
             switch (resultado){

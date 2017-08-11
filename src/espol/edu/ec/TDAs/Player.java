@@ -10,23 +10,33 @@ package espol.edu.ec.TDAs;
  * @author HOME
  */
 public class Player {
+    private String name;
     private Choice choice;
     private int wins;
+    
+    public Player(String name){
+        this.name = name;
+    }
     
     public Choice getChoice(){
         int c = (int)(Math.random()*3);
         switch (c){
             case 0:
-                choice = new Choice("rock");
+                choice = new Rock("Rock");
                 break;
             case 1:
-                choice = new Choice("paper");
+                choice = new Paper("Paper");
                 break;
             case 2:
-                choice = new Choice("scissors");
+                choice = new Sissors("Sissors");
                 break;
         }
         return choice;
+    }
+    
+    @Override
+    public String toString(){
+        return "Nombre: " + this.name + "\nGanados: " + this.wins + "\n";
     }
     
     public void addWin(){

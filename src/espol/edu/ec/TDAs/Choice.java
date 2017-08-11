@@ -5,40 +5,29 @@
  */
 package espol.edu.ec.TDAs;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author HOME
  */
-public class Choice implements Comparable<Choice>{
-    private String option;
+public class Choice {
+    protected String name;
+    protected ArrayList<String> strongAt;
+    protected ArrayList<String> weakAt;
     
-    public Choice(String option){
-        this.option = option;
+    public Choice(String name){
+        this.name = name;
+        strongAt = new ArrayList<>();
+        weakAt = new ArrayList<>();
     }
     
-    @Override
-    public int compareTo(Choice c2){
-        switch (option){
-            case "rock":
-                if (c2.option.equals("paper"))
-                    return -1;
-                else if (c2.option.equals("scissors"))
-                    return 1;
-                return 0;
-            case "paper":
-                if (c2.option.equals("rock"))
-                    return 1;
-                else if (c2.option.equals("scissors"))
-                    return -1;
-                return 0;
-            case "scissors":
-                if (c2.option.equals("rock"))
-                    return -1;
-                else if (c2.option.equals("paper"))
-                    return 1;
-                return 0;
-            default:
-                return 0;
-        }
+    public int compareTo(Choice c2) {
+        if (strongAt.contains(c2.name))
+            return 1;
+        else if (weakAt.contains(c2.name))
+            return -1;
+        return 0;
     }
+    
 }
